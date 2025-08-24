@@ -3,9 +3,8 @@
 一款結合 **Enervi7 七階能量覺察系統** 與 **周郁凱八角框架（Octalysis）** 的 PWA（Progressive Web App）。  
 目標是讓「能量測驗」不只是測量，而是一場充滿 **召喚、成就、創造、連續行動** 的沉浸式體驗。
 
-🌐 Demo 網址（GitHub Pages 部署後）：  
-👉 https://USERNAME.github.io/Mixenervi7/  
-（將 `USERNAME` 換成你的 GitHub 使用者名稱）
+🌐 Demo 網址：  
+👉 https://octo701028-sudo.github.io/Mixenervi7/
 
 ---
 
@@ -40,7 +39,7 @@
 ## 📲 安裝方式
 
 1. 打開 Demo 網址：  
-   👉 https://USERNAME.github.io/Mixenervi7/
+   👉 https://octo701028-sudo.github.io/Mixenervi7/
 
 2. 在瀏覽器選單選擇：  
    - iOS Safari：**「加入主畫面」**  
