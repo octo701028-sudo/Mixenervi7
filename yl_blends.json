@@ -1,4 +1,506 @@
-{
-  "Peace & Calming": "協助放鬆與安定",
-  "Forgiveness": "釋放與寬恕"
-}
+[
+  {
+    "name": "Abundance",
+    "desc": ""
+  },
+  {
+    "name": "Acceptance",
+    "desc": ""
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": ""
+  },
+  {
+    "name": "Awaken",
+    "desc": ""
+  },
+  {
+    "name": "Believe",
+    "desc": ""
+  },
+  {
+    "name": "Clarity",
+    "desc": ""
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": ""
+  },
+  {
+    "name": "Forgiveness",
+    "desc": ""
+  },
+  {
+    "name": "Grounding",
+    "desc": ""
+  },
+  {
+    "name": "Harmony",
+    "desc": ""
+  },
+  {
+    "name": "Highest Potential",
+    "desc": ""
+  },
+  {
+    "name": "Joy",
+    "desc": ""
+  },
+  {
+    "name": "PanAway",
+    "desc": ""
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": ""
+  },
+  {
+    "name": "Purification",
+    "desc": ""
+  },
+  {
+    "name": "R.C.",
+    "desc": ""
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": ""
+  },
+  {
+    "name": "Stress Away",
+    "desc": ""
+  },
+  {
+    "name": "Transformation",
+    "desc": ""
+  },
+  {
+    "name": "Valor",
+    "desc": ""
+  },
+  {
+    "name": "White Angelica",
+    "desc": ""
+  },
+  {
+    "name": "Abundance",
+    "desc": ""
+  },
+  {
+    "name": "Acceptance",
+    "desc": ""
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": ""
+  },
+  {
+    "name": "Awaken",
+    "desc": ""
+  },
+  {
+    "name": "Believe",
+    "desc": ""
+  },
+  {
+    "name": "Clarity",
+    "desc": ""
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": ""
+  },
+  {
+    "name": "Forgiveness",
+    "desc": ""
+  },
+  {
+    "name": "Grounding",
+    "desc": ""
+  },
+  {
+    "name": "Harmony",
+    "desc": ""
+  },
+  {
+    "name": "Highest Potential",
+    "desc": ""
+  },
+  {
+    "name": "Joy",
+    "desc": ""
+  },
+  {
+    "name": "PanAway",
+    "desc": ""
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": ""
+  },
+  {
+    "name": "Purification",
+    "desc": ""
+  },
+  {
+    "name": "R.C.",
+    "desc": ""
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": ""
+  },
+  {
+    "name": "Stress Away",
+    "desc": ""
+  },
+  {
+    "name": "Transformation",
+    "desc": ""
+  },
+  {
+    "name": "Valor",
+    "desc": ""
+  },
+  {
+    "name": "White Angelica",
+    "desc": ""
+  },
+  {
+    "name": "Abundance",
+    "desc": ""
+  },
+  {
+    "name": "Acceptance",
+    "desc": ""
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": ""
+  },
+  {
+    "name": "Awaken",
+    "desc": ""
+  },
+  {
+    "name": "Believe",
+    "desc": ""
+  },
+  {
+    "name": "Clarity",
+    "desc": ""
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": ""
+  },
+  {
+    "name": "Forgiveness",
+    "desc": ""
+  },
+  {
+    "name": "Grounding",
+    "desc": ""
+  },
+  {
+    "name": "Harmony",
+    "desc": ""
+  },
+  {
+    "name": "Highest Potential",
+    "desc": ""
+  },
+  {
+    "name": "Joy",
+    "desc": ""
+  },
+  {
+    "name": "PanAway",
+    "desc": ""
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": ""
+  },
+  {
+    "name": "Purification",
+    "desc": ""
+  },
+  {
+    "name": "R.C.",
+    "desc": ""
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": ""
+  },
+  {
+    "name": "Stress Away",
+    "desc": ""
+  },
+  {
+    "name": "Transformation",
+    "desc": ""
+  },
+  {
+    "name": "Valor",
+    "desc": ""
+  },
+  {
+    "name": "White Angelica",
+    "desc": ""
+  },
+  {
+    "name": "Abundance",
+    "desc": ""
+  },
+  {
+    "name": "Acceptance",
+    "desc": ""
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": ""
+  },
+  {
+    "name": "Awaken",
+    "desc": ""
+  },
+  {
+    "name": "Believe",
+    "desc": ""
+  },
+  {
+    "name": "Clarity",
+    "desc": ""
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": ""
+  },
+  {
+    "name": "Forgiveness",
+    "desc": ""
+  },
+  {
+    "name": "Grounding",
+    "desc": ""
+  },
+  {
+    "name": "Harmony",
+    "desc": ""
+  },
+  {
+    "name": "Highest Potential",
+    "desc": ""
+  },
+  {
+    "name": "Joy",
+    "desc": ""
+  },
+  {
+    "name": "PanAway",
+    "desc": ""
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": ""
+  },
+  {
+    "name": "Purification",
+    "desc": ""
+  },
+  {
+    "name": "R.C.",
+    "desc": ""
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": ""
+  },
+  {
+    "name": "Stress Away",
+    "desc": ""
+  },
+  {
+    "name": "Transformation",
+    "desc": ""
+  },
+  {
+    "name": "Valor",
+    "desc": ""
+  },
+  {
+    "name": "White Angelica",
+    "desc": ""
+  },
+  {
+    "name": "Abundance",
+    "desc": ""
+  },
+  {
+    "name": "Acceptance",
+    "desc": ""
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": ""
+  },
+  {
+    "name": "Awaken",
+    "desc": ""
+  },
+  {
+    "name": "Believe",
+    "desc": ""
+  },
+  {
+    "name": "Clarity",
+    "desc": ""
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": ""
+  },
+  {
+    "name": "Forgiveness",
+    "desc": ""
+  },
+  {
+    "name": "Grounding",
+    "desc": ""
+  },
+  {
+    "name": "Harmony",
+    "desc": ""
+  },
+  {
+    "name": "Highest Potential",
+    "desc": ""
+  },
+  {
+    "name": "Joy",
+    "desc": ""
+  },
+  {
+    "name": "PanAway",
+    "desc": ""
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": ""
+  },
+  {
+    "name": "Purification",
+    "desc": ""
+  },
+  {
+    "name": "R.C.",
+    "desc": ""
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": ""
+  },
+  {
+    "name": "Stress Away",
+    "desc": ""
+  },
+  {
+    "name": "Transformation",
+    "desc": ""
+  },
+  {
+    "name": "Valor",
+    "desc": ""
+  },
+  {
+    "name": "White Angelica",
+    "desc": ""
+  },
+  {
+    "name": "Abundance",
+    "desc": ""
+  },
+  {
+    "name": "Acceptance",
+    "desc": ""
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": ""
+  },
+  {
+    "name": "Awaken",
+    "desc": ""
+  },
+  {
+    "name": "Believe",
+    "desc": ""
+  },
+  {
+    "name": "Clarity",
+    "desc": ""
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": ""
+  },
+  {
+    "name": "Forgiveness",
+    "desc": ""
+  },
+  {
+    "name": "Grounding",
+    "desc": ""
+  },
+  {
+    "name": "Harmony",
+    "desc": ""
+  },
+  {
+    "name": "Highest Potential",
+    "desc": ""
+  },
+  {
+    "name": "Joy",
+    "desc": ""
+  },
+  {
+    "name": "PanAway",
+    "desc": ""
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": ""
+  },
+  {
+    "name": "Purification",
+    "desc": ""
+  },
+  {
+    "name": "R.C.",
+    "desc": ""
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": ""
+  },
+  {
+    "name": "Stress Away",
+    "desc": ""
+  },
+  {
+    "name": "Transformation",
+    "desc": ""
+  },
+  {
+    "name": "Valor",
+    "desc": ""
+  },
+  {
+    "name": "White Angelica",
+    "desc": ""
+  }
+]
