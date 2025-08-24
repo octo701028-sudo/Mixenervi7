@@ -1,0 +1,482 @@
+[
+  {
+    "name": "Abundance",
+    "desc": "支持豐盛與吸引力的能量。"
+  },
+  {
+    "name": "Acceptance",
+    "desc": "幫助接受自我與環境的變化。"
+  },
+  {
+    "name": "Aroma Life",
+    "desc": "支持循環與心臟健康。"
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": "舒緩肌肉緊繃與壓力。"
+  },
+  {
+    "name": "Awaken",
+    "desc": "喚醒潛能與直覺。"
+  },
+  {
+    "name": "Believe",
+    "desc": "強化信念與內在力量。"
+  },
+  {
+    "name": "Christmas Spirit",
+    "desc": "帶來喜悅與節慶氛圍。"
+  },
+  {
+    "name": "Clarity",
+    "desc": "提升思緒清晰與專注。"
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": "支持夢境與靈感顯化。"
+  },
+  {
+    "name": "En-R-G-E",
+    "desc": "提供能量與活力。"
+  },
+  {
+    "name": "Forgiveness",
+    "desc": "協助釋放與寬恕。"
+  },
+  {
+    "name": "Grounding",
+    "desc": "幫助腳踏實地與穩定感。"
+  },
+  {
+    "name": "Harmony",
+    "desc": "促進內在與外在和諧。"
+  },
+  {
+    "name": "Highest Potential",
+    "desc": "激發最高潛能。"
+  },
+  {
+    "name": "Joy",
+    "desc": "散發喜悅與幸福能量。"
+  },
+  {
+    "name": "PanAway",
+    "desc": "舒緩肌肉與不適。"
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": "帶來安定與放鬆。"
+  },
+  {
+    "name": "Purification",
+    "desc": "淨化空間與能量。"
+  },
+  {
+    "name": "R.C.",
+    "desc": "支持呼吸與清新感。"
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": "營造神聖與安全感。"
+  },
+  {
+    "name": "Stress Away",
+    "desc": "舒緩壓力與緊繃。"
+  },
+  {
+    "name": "Transformation",
+    "desc": "支持內在轉化。"
+  },
+  {
+    "name": "Valor",
+    "desc": "勇氣與自信的支持。"
+  },
+  {
+    "name": "White Angelica",
+    "desc": "提供守護與光之能量。"
+  },
+  {
+    "name": "ImmuPower",
+    "desc": "支持免疫系統。"
+  },
+  {
+    "name": "Magnify Your Purpose",
+    "desc": "放大使命感與方向。"
+  },
+  {
+    "name": "Motivation",
+    "desc": "激發動力與執行力。"
+  },
+  {
+    "name": "Release",
+    "desc": "協助釋放情緒負擔。"
+  },
+  {
+    "name": "Surrender",
+    "desc": "幫助臣服與放下控制。"
+  },
+  {
+    "name": "Three Wise Men",
+    "desc": "靈性與智慧的支持。"
+  },
+  {
+    "name": "Abundance",
+    "desc": "支持豐盛與吸引力的能量。"
+  },
+  {
+    "name": "Acceptance",
+    "desc": "幫助接受自我與環境的變化。"
+  },
+  {
+    "name": "Aroma Life",
+    "desc": "支持循環與心臟健康。"
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": "舒緩肌肉緊繃與壓力。"
+  },
+  {
+    "name": "Awaken",
+    "desc": "喚醒潛能與直覺。"
+  },
+  {
+    "name": "Believe",
+    "desc": "強化信念與內在力量。"
+  },
+  {
+    "name": "Christmas Spirit",
+    "desc": "帶來喜悅與節慶氛圍。"
+  },
+  {
+    "name": "Clarity",
+    "desc": "提升思緒清晰與專注。"
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": "支持夢境與靈感顯化。"
+  },
+  {
+    "name": "En-R-G-E",
+    "desc": "提供能量與活力。"
+  },
+  {
+    "name": "Forgiveness",
+    "desc": "協助釋放與寬恕。"
+  },
+  {
+    "name": "Grounding",
+    "desc": "幫助腳踏實地與穩定感。"
+  },
+  {
+    "name": "Harmony",
+    "desc": "促進內在與外在和諧。"
+  },
+  {
+    "name": "Highest Potential",
+    "desc": "激發最高潛能。"
+  },
+  {
+    "name": "Joy",
+    "desc": "散發喜悅與幸福能量。"
+  },
+  {
+    "name": "PanAway",
+    "desc": "舒緩肌肉與不適。"
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": "帶來安定與放鬆。"
+  },
+  {
+    "name": "Purification",
+    "desc": "淨化空間與能量。"
+  },
+  {
+    "name": "R.C.",
+    "desc": "支持呼吸與清新感。"
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": "營造神聖與安全感。"
+  },
+  {
+    "name": "Stress Away",
+    "desc": "舒緩壓力與緊繃。"
+  },
+  {
+    "name": "Transformation",
+    "desc": "支持內在轉化。"
+  },
+  {
+    "name": "Valor",
+    "desc": "勇氣與自信的支持。"
+  },
+  {
+    "name": "White Angelica",
+    "desc": "提供守護與光之能量。"
+  },
+  {
+    "name": "ImmuPower",
+    "desc": "支持免疫系統。"
+  },
+  {
+    "name": "Magnify Your Purpose",
+    "desc": "放大使命感與方向。"
+  },
+  {
+    "name": "Motivation",
+    "desc": "激發動力與執行力。"
+  },
+  {
+    "name": "Release",
+    "desc": "協助釋放情緒負擔。"
+  },
+  {
+    "name": "Surrender",
+    "desc": "幫助臣服與放下控制。"
+  },
+  {
+    "name": "Three Wise Men",
+    "desc": "靈性與智慧的支持。"
+  },
+  {
+    "name": "Abundance",
+    "desc": "支持豐盛與吸引力的能量。"
+  },
+  {
+    "name": "Acceptance",
+    "desc": "幫助接受自我與環境的變化。"
+  },
+  {
+    "name": "Aroma Life",
+    "desc": "支持循環與心臟健康。"
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": "舒緩肌肉緊繃與壓力。"
+  },
+  {
+    "name": "Awaken",
+    "desc": "喚醒潛能與直覺。"
+  },
+  {
+    "name": "Believe",
+    "desc": "強化信念與內在力量。"
+  },
+  {
+    "name": "Christmas Spirit",
+    "desc": "帶來喜悅與節慶氛圍。"
+  },
+  {
+    "name": "Clarity",
+    "desc": "提升思緒清晰與專注。"
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": "支持夢境與靈感顯化。"
+  },
+  {
+    "name": "En-R-G-E",
+    "desc": "提供能量與活力。"
+  },
+  {
+    "name": "Forgiveness",
+    "desc": "協助釋放與寬恕。"
+  },
+  {
+    "name": "Grounding",
+    "desc": "幫助腳踏實地與穩定感。"
+  },
+  {
+    "name": "Harmony",
+    "desc": "促進內在與外在和諧。"
+  },
+  {
+    "name": "Highest Potential",
+    "desc": "激發最高潛能。"
+  },
+  {
+    "name": "Joy",
+    "desc": "散發喜悅與幸福能量。"
+  },
+  {
+    "name": "PanAway",
+    "desc": "舒緩肌肉與不適。"
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": "帶來安定與放鬆。"
+  },
+  {
+    "name": "Purification",
+    "desc": "淨化空間與能量。"
+  },
+  {
+    "name": "R.C.",
+    "desc": "支持呼吸與清新感。"
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": "營造神聖與安全感。"
+  },
+  {
+    "name": "Stress Away",
+    "desc": "舒緩壓力與緊繃。"
+  },
+  {
+    "name": "Transformation",
+    "desc": "支持內在轉化。"
+  },
+  {
+    "name": "Valor",
+    "desc": "勇氣與自信的支持。"
+  },
+  {
+    "name": "White Angelica",
+    "desc": "提供守護與光之能量。"
+  },
+  {
+    "name": "ImmuPower",
+    "desc": "支持免疫系統。"
+  },
+  {
+    "name": "Magnify Your Purpose",
+    "desc": "放大使命感與方向。"
+  },
+  {
+    "name": "Motivation",
+    "desc": "激發動力與執行力。"
+  },
+  {
+    "name": "Release",
+    "desc": "協助釋放情緒負擔。"
+  },
+  {
+    "name": "Surrender",
+    "desc": "幫助臣服與放下控制。"
+  },
+  {
+    "name": "Three Wise Men",
+    "desc": "靈性與智慧的支持。"
+  },
+  {
+    "name": "Abundance",
+    "desc": "支持豐盛與吸引力的能量。"
+  },
+  {
+    "name": "Acceptance",
+    "desc": "幫助接受自我與環境的變化。"
+  },
+  {
+    "name": "Aroma Life",
+    "desc": "支持循環與心臟健康。"
+  },
+  {
+    "name": "Aroma Siez",
+    "desc": "舒緩肌肉緊繃與壓力。"
+  },
+  {
+    "name": "Awaken",
+    "desc": "喚醒潛能與直覺。"
+  },
+  {
+    "name": "Believe",
+    "desc": "強化信念與內在力量。"
+  },
+  {
+    "name": "Christmas Spirit",
+    "desc": "帶來喜悅與節慶氛圍。"
+  },
+  {
+    "name": "Clarity",
+    "desc": "提升思緒清晰與專注。"
+  },
+  {
+    "name": "Dream Catcher",
+    "desc": "支持夢境與靈感顯化。"
+  },
+  {
+    "name": "En-R-G-E",
+    "desc": "提供能量與活力。"
+  },
+  {
+    "name": "Forgiveness",
+    "desc": "協助釋放與寬恕。"
+  },
+  {
+    "name": "Grounding",
+    "desc": "幫助腳踏實地與穩定感。"
+  },
+  {
+    "name": "Harmony",
+    "desc": "促進內在與外在和諧。"
+  },
+  {
+    "name": "Highest Potential",
+    "desc": "激發最高潛能。"
+  },
+  {
+    "name": "Joy",
+    "desc": "散發喜悅與幸福能量。"
+  },
+  {
+    "name": "PanAway",
+    "desc": "舒緩肌肉與不適。"
+  },
+  {
+    "name": "Peace & Calming",
+    "desc": "帶來安定與放鬆。"
+  },
+  {
+    "name": "Purification",
+    "desc": "淨化空間與能量。"
+  },
+  {
+    "name": "R.C.",
+    "desc": "支持呼吸與清新感。"
+  },
+  {
+    "name": "Sacred Mountain",
+    "desc": "營造神聖與安全感。"
+  },
+  {
+    "name": "Stress Away",
+    "desc": "舒緩壓力與緊繃。"
+  },
+  {
+    "name": "Transformation",
+    "desc": "支持內在轉化。"
+  },
+  {
+    "name": "Valor",
+    "desc": "勇氣與自信的支持。"
+  },
+  {
+    "name": "White Angelica",
+    "desc": "提供守護與光之能量。"
+  },
+  {
+    "name": "ImmuPower",
+    "desc": "支持免疫系統。"
+  },
+  {
+    "name": "Magnify Your Purpose",
+    "desc": "放大使命感與方向。"
+  },
+  {
+    "name": "Motivation",
+    "desc": "激發動力與執行力。"
+  },
+  {
+    "name": "Release",
+    "desc": "協助釋放情緒負擔。"
+  },
+  {
+    "name": "Surrender",
+    "desc": "幫助臣服與放下控制。"
+  },
+  {
+    "name": "Three Wise Men",
+    "desc": "靈性與智慧的支持。"
+  }
+]
