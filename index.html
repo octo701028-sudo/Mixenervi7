@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6a00ff">
+  <title>Enervi7 × 八角框架｜Octalysis Edition</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root{
+      --bg:#0f0b1a;
+      --card:#1b1330;
+      --text:#f8f5ff;
+      --muted:#cbb7ff;
+      --accent: #6a00ff; /* 可被使用者更改 */
+      --good:#00d084;
+      --warn:#ffb700;
+      --bad:#ff4d4f;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;}
+    header{padding:24px 16px 8px; display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#b388ff);display:grid;place-items:center;font-weight:900}
+    .logo span{font-size:18px}
+    h1{font-size:18px;margin:0}
+    .summon{font-size:14px;color:var(--muted);margin-top:4px;max-width:680px}
+    .panel{background:var(--card); border:1px solid #2b1d4f; border-radius:16px; padding:16px; margin:12px 16px;}
+    .row{display:grid; grid-template-columns:1fr 120px; gap:12px; align-items:center; margin:10px 0;}
+    .row label{font-size:14px}
+    .row input[type=range]{width:100%}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#2b1d4f;border:1px solid #3a2a62;border-radius:999px;padding:6px 10px;font-size:12px}
+    button{background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer}
+    button.ghost{background:transparent;border:1px solid #3a2a62;color:var(--text)}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .grid{display:grid;gap:12px}
+    @media(min-width:960px){ .grid{grid-template-columns:1.2fr 1fr} }
+    .badge{background:#2b1d4f;border:1px solid #3a2a62;border-radius:12px;padding:10px;display:flex;align-items:center;gap:8px}
+    .badge .emo{font-size:20px}
+    .muted{color:var(--muted);font-size:13px}
+    .title{font-weight:800;margin-bottom:8px}
+    .section-title{font-weight:800;margin:8px 16px}
+    /* Radar */
+    .radar-wrap{background:#120d21;border:1px solid #2b1d4f;border-radius:16px;padding:12px;display:grid;place-items:center}
+    svg{max-width:100%;height:auto}
+    .kvs{display:grid;gap:8px}
+    details{background:#120d21;border:1px solid #2b1d4f;border-radius:12px;padding:10px}
+    summary{cursor:pointer}
+    .footer{padding:24px 16px 48px;color:var(--muted);text-align:center;font-size:12px}
+    .color-pick{display:flex;align-items:center;gap:8px}
+    input[type=color]{width:40px;height:32px;border-radius:8px;border:1px solid #3a2a62;background:transparent;padding:0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo"><span>E7</span></div>
+      <div>
+        <h1>Enervi7 × 八角框架｜Octalysis Edition</h1>
+        <div id="summon" class="summon">你正在踏上一條靈魂回歸的道路。</div>
+      </div>
+    </div>
+    <div class="color-pick">
+      <label for="theme">主題色：</label>
+      <input id="theme" type="color" value="#6a00ff" title="選擇主題顏色">
+      <button id="resetTheme" class="ghost">重置</button>
+    </div>
+  </header>
+
+  <section class="panel grid">
+    <div>
+      <div class="title">七階測驗（移動滑桿，點擊「生成能量圖」）</div>
+      <div id="sliders"></div>
+      <div class="actions" style="margin-top:12px">
+        <button id="gen">生成能量圖</button>
+        <button id="download" class="ghost">下載分享卡</button>
+      </div>
+      <div style="margin-top:12px" class="muted">提示：首次完成測驗、連續 7 日完成測驗、累積 10 次測驗，會解鎖徽章。</div>
+    </div>
+    <div>
+      <div class="title">能量雷達圖</div>
+      <div class="radar-wrap"><svg id="radar" width="420" height="420" viewBox="0 0 420 420" role="img" aria-label="Enervi7 Radar"></svg></div>
+    </div>
+  </section>
+
+  <section class="panel grid">
+    <div>
+      <div class="title">結果與行動建議</div>
+      <div id="summary"></div>
+      <div class="kvs" id="kvs" style="margin-top:12px"></div>
+    </div>
+    <div>
+      <div class="title">徽章與連續日</div>
+      <div class="badge"><span class="emo">🔥</span><div><div><strong>連續日</strong></div><div id="streak" class="muted">0</div></div></div>
+      <div class="badge" style="margin-top:8px;"><span class="emo">🏅</span><div><div><strong>已解鎖徽章</strong></div><div id="badges" class="chips"></div></div></div>
+      <div class="badge" style="margin-top:8px;"><span class="emo">📊</span><div><div><strong>累積測驗</strong></div><div id="tests" class="muted">0</div></div></div>
+    </div>
+  </section>
+
+  <h3 class="section-title">八角框架 × Enervi7（你的當前驅力配方）</h3>
+  <section class="panel">
+    <div id="octx" class="chips"></div>
+  </section>
+
+  <div class="footer">© Enervi7 Octalysis Edition — 以靈魂召喚 × 成就 × 創造力 × 連續行動，讓能量旅程更沉浸。</div>
+
+  <script>
+    // ---------- Data ----------
+    const STAGES = [
+      { key:'white',  name:'白 / 能量覺知',     emoji:'💡', kv:'覺知與清明', action:'今日覺察三次呼吸。', oil:'乳香、尤加利、茶樹' },
+      { key:'blue',   name:'藍 / 穩定與淨化',   emoji:'💧', kv:'穩定與淨化', action:'十分鐘靜坐與空間淨化。', oil:'鼠尾草、薄荷、鼠尾草複方' },
+      { key:'orange', name:'橙 / 能量流動',     emoji:'🧡', kv:'流動與創造', action:'一段音樂／舞動三分鐘。', oil:'甜橙、依蘭、柑橘複方' },
+      { key:'yellow', name:'黃 / 內在力量',     emoji:'☀️', kv:'力量與邊界', action:'完成一個微行動並記錄。', oil:'檸檬草、迷迭香、士氣複方' },
+      { key:'green',  name:'綠 / 共振與連結',   emoji:'💚', kv:'連結與慈悲', action:'向一人表達感謝。', oil:'玫瑰草、天竺葵、心輪複方' },
+      { key:'indigo', name:'靛藍 / 意識擴展',   emoji:'🔮', kv:'洞見與直覺', action:'閉眼三分鐘觀想第三眼。', oil:'薰衣草、乳香、冥想複方' },
+      { key:'violet', name:'紫 / 靈魂整合',     emoji:'💜', kv:'整合與超越', action:'書寫三句「我已完成」。', oil:'廣藿香、岩蘭草、靈魂複方' }
+    ];
+
+    const OCTA = [
+      { name:'使命感與呼召', emoji:'🧭' },
+      { name:'進步與成就',   emoji:'🏆' },
+      { name:'創造力與回饋', emoji:'🎨' },
+      { name:'擁有與佔有',   emoji:'💎' },
+      { name:'社交影響與連結', emoji:'🤝' },
+      { name:'稀缺與急迫',   emoji:'⏳' },
+      { name:'不確定與好奇', emoji:'🎲' },
+      { name:'避免失去',     emoji:'🛡️' }
+    ];
+
+    const SUMMON_LINES = [
+      '你正在踏上一條靈魂回歸的道路。',
+      '宇宙在等你點亮下一階的光。',
+      '你已準備好接住豐盛的能量流。',
+      '當你覺察，世界就改變。',
+      '信任你的光，它正帶你前行。',
+      '每一次呼吸，都是一個新的開始。'
+    ];
+
+    // ---------- State & Storage ----------
+    const LS = {
+      theme: 'e7_theme',
+      tests: 'e7_tests',
+      streak: 'e7_streak',
+      last: 'e7_last',
+      badges: 'e7_badges'
+    };
+
+    const $ = (s)=>document.querySelector(s);
+    const $$ = (s)=>Array.from(document.querySelectorAll(s));
+
+    function todayStr(){
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const dd= String(d.getDate()).padStart(2,'0');
+      return `${y}-${m}-${dd}`;
+    }
+
+    function dayDiff(a,b){
+      // a,b: 'YYYY-MM-DD'
+      const da = new Date(a+'T00:00:00');
+      const db = new Date(b+'T00:00:00');
+      return Math.round((db - da)/(1000*60*60*24));
+    }
+
+    function save(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
+    function load(key, def){ const v = localStorage.getItem(key); return v?JSON.parse(v):def; }
+
+    // ---------- Theme ----------
+    function applyTheme(c){
+      document.documentElement.style.setProperty('--accent', c);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', c);
+      $('#theme').value = c;
+      save(LS.theme, c);
+    }
+
+    // ---------- Sliders ----------
+    function mkSliders(){
+      const box = $('#sliders');
+      box.innerHTML = '';
+      STAGES.forEach((st,i)=>{
+        const id = `s${i}`;
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `
+          <label for="${id}">${st.emoji} <strong>${st.name}</strong></label>
+          <input id="${id}" type="range" min="0" max="100" value="50" step="1" />
+        `;
+        box.appendChild(row);
+      });
+    }
+
+    // ---------- Radar Drawing (pure SVG) ----------
+    function renderRadar(values){
+      const N = values.length;
+      const size = 420, cx = 210, cy = 210, R = 160;
+      const svg = $('#radar');
+      svg.innerHTML = '';
+      // Rings
+      const rings = 5;
+      for (let r=1;r<=rings;r++){
+        const rr = R * (r/rings);
+        const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', rr);
+        c.setAttribute('fill', 'none'); c.setAttribute('stroke', '#2b1d4f'); c.setAttribute('stroke-width','1');
+        svg.appendChild(c);
+      }
+      // Axes & labels
+      for (let i=0;i<N;i++){
+        const ang = -Math.PI/2 + i*(2*Math.PI/N);
+        const x = cx + Math.cos(ang)*R;
+        const y = cy + Math.sin(ang)*R;
+        const ln = document.createElementNS('http://www.w3.org/2000/svg','line');
+        ln.setAttribute('x1', cx); ln.setAttribute('y1', cy); ln.setAttribute('x2', x); ln.setAttribute('y2', y);
+        ln.setAttribute('stroke', '#2b1d4f'); ln.setAttribute('stroke-width','1');
+        svg.appendChild(ln);
+
+        const lbx = cx + Math.cos(ang)*(R+18);
+        const lby = cy + Math.sin(ang)*(R+18);
+        const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+        text.setAttribute('x', lbx); text.setAttribute('y', lby);
+        text.setAttribute('fill', 'var(--muted)');
+        text.setAttribute('font-size','12');
+        text.setAttribute('text-anchor', Math.cos(ang)>0.2?'start':(Math.cos(ang)<-0.2?'end':'middle'));
+        text.textContent = STAGES[i].emoji;
+        svg.appendChild(text);
+      }
+      // Polygon
+      const pts = [];
+      for (let i=0;i<N;i++){
+        const ang = -Math.PI/2 + i*(2*Math.PI/N);
+        const rr = (values[i]/100)*R;
+        const x = cx + Math.cos(ang)*rr;
+        const y = cy + Math.sin(ang)*rr;
+        pts.push([x,y]);
+      }
+      const poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+      poly.setAttribute('points', pts.map(p=>p.join(',')).join(' '));
+      poly.setAttribute('fill','var(--accent)');
+      poly.setAttribute('opacity','0.35');
+      poly.setAttribute('stroke','var(--accent)');
+      poly.setAttribute('stroke-width','2');
+      svg.appendChild(poly);
+    }
+
+    // ---------- Result Summary ----------
+    function summarize(values){
+      // Top 2
+      const pairs = values.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v);
+      const top2 = pairs.slice(0,2).map(p=>STAGES[p.i].name).join('，');
+      $('#summary').innerHTML = `
+        <div>最高能量：<strong>${top2}</strong></div>
+        <div class="muted">（提示：保持連續練習可獲得更穩定的能量曲線）</div>
+      `;
+      // All KVs & actions
+      const kvs = $('#kvs'); kvs.innerHTML = '';
+      STAGES.forEach((st,i)=>{
+        const val = values[i];
+        const status = val>=75? '好狀態' : val>=40? '穩定中' : '需要補給';
+        const color = val>=75? 'var(--good)': val>=40? 'var(--warn)':'var(--bad)';
+        const det = document.createElement('details');
+        det.innerHTML = `
+          <summary>${st.emoji} <strong>${st.name}</strong> — <span style="color:${color}">${status}</span>（${val}）</summary>
+          <div style="margin:8px 0 0 0">
+            <div>關鍵語：<em>${st.kv}</em></div>
+            <div>行動建議：${st.action}</div>
+            <div>精油對應：${st.oil}</div>
+          </div>
+        `;
+        kvs.appendChild(det);
+      });
+
+      // Octalysis per current profile (simple mapping rule-of-thumb)
+      const octx = $('#octx'); octx.innerHTML = '';
+      // Map: white->使命, yellow->成就, orange->創造, violet->擁有, green->社交, blue->避免失去, indigo->不確定
+      const idx = {white:0, yellow:1, orange:2, violet:3, green:4, blue:7, indigo:6};
+      const picks = [];
+      STAGES.forEach((st,i)=>{
+        const oc = idx[st.key];
+        picks.push({name:OCTA[oc].name, emoji:OCTA[oc].emoji, score:values[i]});
+      });
+      // dedupe by name keep max
+      const best = {};
+      picks.forEach(p=>{
+        if(!best[p.name] || best[p.name].score < p.score) best[p.name] = p;
+      });
+      const arr = Object.values(best).sort((a,b)=>b.score-a.score);
+      arr.slice(0,4).forEach(p=>{
+        const div = document.createElement('div');
+        div.className='chip';
+        div.textContent = `${p.emoji} ${p.name}`;
+        octx.appendChild(div);
+      });
+    }
+
+    // ---------- Badges & Streak ----------
+    function updateCounters(){
+      const tests = load(LS.tests, 0);
+      $('#tests').textContent = tests;
+      const streak = load(LS.streak, 0);
+      $('#streak').textContent = `${streak} 天`;
+      const badges = load(LS.badges, []);
+      const box = $('#badges'); box.innerHTML = '';
+      if (badges.length===0){
+        const em = document.createElement('div'); em.className='chip'; em.textContent = '（尚未解鎖）';
+        box.appendChild(em);
+      } else {
+        badges.forEach(b=>{
+          const d = document.createElement('div'); d.className='chip'; d.textContent = b; box.appendChild(d);
+        });
+      }
+    }
+
+    function grantBadges(){
+      const list = load(LS.badges, []);
+      const add = (label)=>{ if(!list.includes(label)){ list.push(label); } };
+      const tests = load(LS.tests, 0);
+      const streak = load(LS.streak, 0);
+      if (tests >= 1) add('🏅 覺知之光（首次完成）');
+      if (streak >= 7) add('🏅 七階流光（連續 7 日）');
+      if (tests >= 10) add('🏅 靈魂探險家（累積 10 次）');
+      save(LS.badges, list);
+    }
+
+    function tickCountersOnComplete(){
+      // tests
+      let tests = load(LS.tests, 0) + 1;
+      save(LS.tests, tests);
+      // streak
+      const last = load(LS.last, null);
+      const today = todayStr();
+      if (!last){ save(LS.streak, 1); save(LS.last, today); }
+      else {
+        const diff = dayDiff(last, today);
+        if (diff === 0){
+          // same day, keep streak
+        } else if (diff === 1){
+          save(LS.streak, load(LS.streak, 0)+1);
+          save(LS.last, today);
+        } else {
+          // missed days
+          save(LS.streak, 1);
+          save(LS.last, today);
+        }
+      }
+      grantBadges();
+      updateCounters();
+    }
+
+    // ---------- Export PNG ----------
+    function downloadPNG(){
+      const svg = document.getElementById('radar');
+      const xml = new XMLSerializer().serializeToString(svg);
+      const svg64 = btoa(unescape(encodeURIComponent(xml)));
+      const image64 = 'data:image/svg+xml;base64,' + svg64;
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1080; canvas.height = 1080;
+        const ctx = canvas.getContext('2d');
+        // bg
+        ctx.fillStyle = '#100b1f';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        // title
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 44px system-ui';
+        ctx.fillText('Enervi7 Energy Radar', 40, 70);
+        // svg
+        const sz = 780;
+        ctx.drawImage(img, 150, 140, sz, sz);
+        // footer
+        ctx.fillStyle = '#cbb7ff';
+        ctx.font = '28px system-ui';
+        ctx.fillText('Octalysis Edition — 連續行動 × 成就 × 創造力', 40, 1030);
+        const url = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = url; a.download = 'enervi7_radar.png'; a.click();
+      };
+      img.src = image64;
+    }
+
+    // ---------- Init ----------
+    function init(){
+      // Random summon line
+      document.getElementById('summon').textContent = SUMMON_LINES[Math.floor(Math.random()*SUMMON_LINES.length)];
+      // Theme
+      const t = load(LS.theme, '#6a00ff'); applyTheme(t);
+      document.getElementById('theme').addEventListener('input', (e)=>applyTheme(e.target.value));
+      document.getElementById('resetTheme').addEventListener('click', ()=>applyTheme('#6a00ff'));
+      // Sliders & default radar
+      mkSliders();
+      const vals = Array(STAGES.length).fill(50);
+      renderRadar(vals);
+      summarize(vals);
+      // Buttons
+      document.getElementById('gen').addEventListener('click', ()=>{
+        const values = STAGES.map((_,i)=>Number(document.getElementById('s'+i).value));
+        renderRadar(values);
+        summarize(values);
+        tickCountersOnComplete();
+      });
+      document.getElementById('download').addEventListener('click', downloadPNG);
+      // Counters
+      updateCounters();
+      // PWA SW
+      if ('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./sw.js');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
