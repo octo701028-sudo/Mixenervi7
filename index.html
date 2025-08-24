@@ -1,20 +1,232 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#6a00ff">
-  <title>Enervi7 — 今日建議精油</title>
-  <link rel="manifest" href="manifest.json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6a00ff">
+<title>Enervi7 PWA（完整最終版）</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root { --bg:#0f0b1e; --panel:#1a1430; --accent:#6a00ff; --text:#e9e6ff; --muted:#b9b2d9; }
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(1200px 600px at 80% 20%, #6a00ff10, transparent),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto}
+  header{padding:18px 16px;background:linear-gradient(90deg,#6a00ff,#8b5cf6);position:sticky;top:0}
+  h1{margin:0;font-size:24px} .wrap{max-width:980px;margin:18px auto;padding:0 16px}
+  .card{background:var(--panel);border:1px solid #ffffff14;border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 10px 30px #00000040}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px} @media(max-width:760px){ .row{grid-template-columns:1fr} }
+  .q{margin:8px 0 14px} .q label{display:block;margin-bottom:6px;color:var(--muted)}
+  input[type=range]{width:100%}
+  .btn{background:var(--accent);border:none;color:white;border-radius:12px;padding:10px 14px;font-weight:600;cursor:pointer}
+  canvas{width:100%;max-width:560px;height:auto;display:block;margin:auto}
+  details summary{cursor:pointer;font-weight:700;margin:6px 0}
+  .badge{display:inline-block;border:1px solid #ffffff24;border-radius:999px;padding:4px 10px;margin:4px 6px 0 0;color:#fff;background:#ffffff14;font-size:12px}
+  .pill{border:1px solid #ffffff1f;border-radius:10px;padding:10px;margin-top:8px}
+  .kv{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+  .kv b{color:#fff}
+  .hint{color:var(--muted);font-size:13px}
+  .title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .chip{background:#6a00ff20;border:1px solid #6a00ff60;border-radius:999px;padding:4px 10px;font-size:12px}
+</style>
 </head>
 <body>
-  <h1>Enervi7 PWA（完整版）</h1>
-  <div id="oil"></div>
-  <script>
-    fetch('yl_blends.json').then(r=>r.json()).then(list=>{
-      const pick = list[Math.floor(Math.random()*list.length)];
-      document.getElementById('oil').innerText = "今日建議精油：" + pick.name + " — " + pick.desc;
-    });
-  </script>
+<header>
+  <div class="title-row">
+    <h1>Enervi7 PWA（完整版）</h1>
+    <span class="chip">離線可用</span>
+    <span class="chip">今日建議精油</span>
+  </div>
+  <div class="hint">量表：0 = 完全不符合 ／ 10 = 非常符合</div>
+</header>
+
+<div class="wrap">
+  <!-- 量表 -->
+  <section class="card" id="quiz">
+    <h2>🧭 14 題量表</h2>
+    <div class="row" id="qwrap"></div>
+    <button class="btn" id="gen">生成能量圖 & 指引</button>
+  </section>
+
+  <!-- 雷達圖 -->
+  <section class="card">
+    <h2>📊 能量雷達圖</h2>
+    <canvas id="radar" width="560" height="420"></canvas>
+    <div class="kv" id="topkeys"></div>
+  </section>
+
+  <!-- 今日卡牌與建議 -->
+  <section class="card">
+    <h2>🎴 今日指引</h2>
+    <div id="cards"></div>
+    <div class="pill" id="dailyOil">今日建議精油：<em>—</em></div>
+  </section>
+
+  <!-- 七階展開 -->
+  <section class="card">
+    <h2>🌈 七階資訊卡</h2>
+    <div id="phases"></div>
+  </section>
+</div>
+
+<script>
+const QUESTIONS = [
+ {phase:'白｜能量覺知', text:'我能清楚覺察自己此刻的身心狀態。'},
+ {phase:'白｜能量覺知', text:'我能在混亂時，迅速把注意力帶回當下。'},
+ {phase:'藍｜穩定與淨化', text:'面對壓力或衝突時，我能保持冷靜不失衡。'},
+ {phase:'藍｜穩定與淨化', text:'我能有效地釋放累積的負面情緒與雜念。'},
+ {phase:'橙｜能量流動', text:'我常感覺靈感／情感在體內自然流動。'},
+ {phase:'橙｜能量流動', text:'我能順勢調整步調，不僵硬或卡住。'},
+ {phase:'黃｜內在力量', text:'做決定時，我能堅定地選擇對自己真的好的事。'},
+ {phase:'黃｜內在力量', text:'遇到挑戰，我仍能相信自己並往前一步。'},
+ {phase:'綠｜共振與連結', text:'我能真誠表達，也樂於傾聽他人。'},
+ {phase:'綠｜共振與連結', text:'我能感到自己與他人、與世界是連結的。'},
+ {phase:'靛藍｜意識擴展', text:'我信任直覺，且能從中獲得有用的指引。'},
+ {phase:'靛藍｜意識擴展', text:'我能從日常事件看見更深的洞見與意義。'},
+ {phase:'紫｜靈魂整合', text:'我能把過去的經驗整合成力量，而不是枷鎖。'},
+ {phase:'紫｜靈魂整合', text:'我常感到自己完整、對生命方向踏實安心。'}
+];
+
+const PHASE_INFO = {
+ '白｜能量覺知': {
+   key:'覺知、清明、面對當下',
+   actions:['寫三句「此刻我真實的感受是…」','3 分鐘腹式呼吸（4-4-6），注意身體感受','列出 1 個念頭：是事實還是解讀？'],
+   single:['乳香','尤加利','茶樹'],
+   yl:['Clarity','Awaken'],
+   blocks:['容易分心、逃避感受','資訊過載，難以回到中心']
+ },
+ '藍｜穩定與淨化': {
+   key:'穩定、釋放、界線',
+   actions:['寫下最困擾你的 1 件事，標註可控 / 不可控','走 10 分鐘讓身體代謝壓力','睡前寫 3 件今天可感謝之事'],
+   single:['鼠尾草','薄荷','檸檬'],
+   yl:['Stress Away','Peace & Calming','Grounding'],
+   blocks:['被壓力吞沒','情緒囤積，難以排解']
+ },
+ '橙｜能量流動': {
+   key:'流動、創造、感受',
+   actions:['5 分鐘自由書寫，只寫感受或想做的事','安排 1 件小玩樂','把今天 To‑do 切成 10 分鐘一小步'],
+   single:['甜橙','依蘭','佛手柑'],
+   yl:['Joy','Abundance','Aroma Siez'],
+   blocks:['情緒卡住、缺乏彈性','拖延，缺少火花']
+ },
+ '黃｜內在力量': {
+   key:'自信、邊界、行動',
+   actions:['設定 1 件 MIT 並立刻行動 10 分鐘','練習說一個清楚的「不」','完成後向信任對象公開回報'],
+   single:['檸檬草','迷迭香','薑'],
+   yl:['Valor','Believe','En‑R‑G‑E'],
+   blocks:['過度依賴他人意見','害怕失敗而不前進']
+ },
+ '綠｜共振與連結': {
+   key:'真誠、共鳴、關係',
+   actions:['傾聽 1 人 3 分鐘，只回饋感受','傳一則謝謝訊息','對自己做一件溫柔的事'],
+   single:['玫瑰草','天竺葵','玫瑰'],
+   yl:['Harmony','Acceptance','Christmas Spirit'],
+   blocks:['害怕被拒絕、難敞開','付出與接收不平衡']
+ },
+ '靛藍｜意識擴展': {
+   key:'直覺、洞見、冥想',
+   actions:['3 分鐘靜心：吸 4 / 停 4 / 呼 6','寫下一句今天的直覺訊息','回顧今天最有啟發的一刻'],
+   single:['薰衣草','乳香','檀香'],
+   yl:['Dream Catcher','Forgiveness','Highest Potential'],
+   blocks:['不信任自己的直覺','過度理性，忽略內在聲音']
+ },
+ '紫｜靈魂整合': {
+   key:'整合、全貌、臣服',
+   actions:['把一段過去經驗寫成「力量故事」','寫下一件控制不來的事並註記「我選擇允許」','今晚早睡 30 分鐘'],
+   single:['廣藿香','岩蘭草','雪松'],
+   yl:['White Angelica','Sacred Mountain','Transformation'],
+   blocks:['陷入混亂，看不見方向','感到破碎，缺乏整合感']
+ }
+};
+
+const qwrap = document.getElementById('qwrap');
+QUESTIONS.forEach((q, i)=>{
+  const div = document.createElement('div');
+  div.className = 'q card';
+  div.innerHTML = `
+    <label>${i+1}. <b>${q.phase}</b>｜${q.text}</label>
+    <input type="range" min="0" max="10" step="1" value="5" id="q${i}">
+    <div class="hint">0 = 完全不符合　/　10 = 非常符合</div>
+  `;
+  qwrap.appendChild(div);
+});
+
+function computeScores(){
+  const phases = Object.keys(PHASE_INFO);
+  const vals = {}; let idx = 0;
+  phases.forEach(p=>{
+    const a = parseInt(document.getElementById(`q${idx++}`).value,10);
+    const b = parseInt(document.getElementById(`q${idx++}`).value,10);
+    vals[p] = (a + b) / 2;
+  });
+  return vals;
+}
+
+function drawRadar(scores){
+  const canvas = document.getElementById('radar');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+  const cx = W/2, cy = H/2 + 10, R = Math.min(W,H)/2 - 40;
+  const phases = Object.keys(scores);
+  const N = phases.length;
+  ctx.strokeStyle = '#ffffff22';
+  for(let r=R; r>R/5; r-=R/5){ ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke(); }
+  for(let i=0;i<N;i++){
+    const ang = -Math.PI/2 + i*(Math.PI*2/N);
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.lineTo(cx + Math.cos(ang)*R, cy + Math.sin(ang)*R); ctx.stroke();
+    const tx = cx + Math.cos(ang)*(R+14), ty = cy + Math.sin(ang)*(R+14);
+    ctx.fillStyle = '#b9b2d9'; ctx.font = '12px system-ui';
+    ctx.textAlign = Math.cos(ang)>0? 'left' : 'right';
+    ctx.fillText(phases[i].split('｜')[0], tx, ty);
+  }
+  ctx.beginPath();
+  for(let i=0;i<N;i++){
+    const val = scores[phases[i]]/10;
+    const ang = -Math.PI/2 + i*(Math.PI*2/N);
+    const x = cx + Math.cos(ang)*R*val, y = cy + Math.sin(ang)*R*val;
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+  ctx.closePath(); ctx.fillStyle = '#6a00ff55'; ctx.strokeStyle = '#6a00ff'; ctx.lineWidth = 2; ctx.fill(); ctx.stroke();
+}
+
+function renderResult(scores){
+  drawRadar(scores);
+  const entries = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  const top = entries[0][0], low = entries[entries.length-1][0];
+  const topdiv = document.getElementById('topkeys');
+  topdiv.innerHTML = `<span class="badge">最高：${top} ${scores[top].toFixed(1)}</span>
+                      <span class="badge">最低：${low} ${scores[low].toFixed(1)}</span>`;
+  const c = document.getElementById('cards'); c.innerHTML='';
+  function card(title, body){ const el=document.createElement('div'); el.className='pill'; el.innerHTML=`<b>${title}</b><div class="hint" style="margin-top:6px">${body}</div>`; c.appendChild(el); }
+  card('優勢之光', `${top} — ${PHASE_INFO[top].key}`);
+  card('補給之光', `${low} — ${PHASE_INFO[low].key}`);
+  card('今日行動', PHASE_INFO[top].actions[0]);
+  const INS = ["成為，是允許你出現。","自由，不是逃離，而是不再壓抑真實的自己。","你不是在尋找，而是在記得。","靜默，不是空白，是語言之前的完整。"];
+  card('靈光啟示', INS[Math.floor(Math.random()*INS.length)]);
+}
+
+document.getElementById('gen').addEventListener('click', async ()=>{
+  const scores = computeScores();
+  renderResult(scores);
+  try{
+    const res = await fetch('yl_blends.json'); const list = await res.json();
+    const pick = list[Math.floor(Math.random()*list.length)];
+    document.querySelector('#dailyOil').innerHTML = `今日建議精油：<b>${pick.name}</b> <span class="hint">${pick.desc||''}</span>`;
+  }catch(e){ document.querySelector('#dailyOil').innerHTML = '今日建議精油：載入失敗'; }
+});
+
+const ph = document.getElementById('phases');
+Object.entries(PHASE_INFO).forEach(([name,info])=>{
+  const d = document.createElement('details');
+  d.innerHTML = `<summary>${name}</summary>
+    <div class="kv"><span class="badge">關鍵字</span><span>${info.key}</span></div>
+    <div class="kv"><span class="badge">行動建議</span><ul>${info.actions.map(a=>`<li>${a}</li>`).join('')}</ul></div>
+    <div class="kv"><span class="badge">單方精油</span><b>${info.single.join('、')}</b></div>
+    <div class="kv"><span class="badge">推薦複方</span><b>${info.yl.join('、')}</b></div>
+    <div class="kv"><span class="badge">常見卡點</span><ul>${info.blocks.map(b=>`<li>${b}</li>`).join('')}</ul></div>`;
+  d.className='pill'; ph.appendChild(d);
+});
+
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js'); }
+</script>
 </body>
 </html>
