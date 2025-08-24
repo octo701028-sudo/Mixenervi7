@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Enervi7 PWA v4.1</title>
+<title>Enervi7 PWA v4.2</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#6a00ff">
 <style>
@@ -30,7 +30,7 @@
 </head>
 <body>
 <header>
-  <h1>Enervi7 PWA（v4.1） <span id="streak" class="chip streak">連續 0 天</span> <span class="chip">呢喃神諭</span><span class="chip">今日精油</span></h1>
+  <h1>Enervi7 PWA（v4.2） <span id="streak" class="chip streak">連續 0 天</span> <span class="chip">呢喃神諭</span><span class="chip">今日精油</span></h1>
   <div class="hint">量表：0 = 完全不符合 ／ 10 = 非常符合</div>
 </header>
 <div class="wrap">
@@ -51,7 +51,7 @@
   </section>
   <section class="card">
     <h2>🌬️ 呢喃神諭（抽卡）</h2>
-    <button class="btn" id="draw">抽卡</button>
+    <button class="btn" id="draw">再抽一張</button>
     <div id="oracleCard" class="pill"></div>
   </section>
   <section class="card">
@@ -60,26 +60,26 @@
   </section>
 </div>
 <script>
-const QUESTIONS = [
- {phase:'白｜能量覺知', text:'我能清楚覺察自己此刻的身心狀態。'},
- {phase:'白｜能量覺知', text:'我能在混亂時，迅速把注意力帶回當下。'},
- {phase:'藍｜穩定與淨化', text:'面對壓力或衝突時，我能保持冷靜不失衡。'},
- {phase:'藍｜穩定與淨化', text:'我能有效地釋放累積的負面情緒與雜念。'},
- {phase:'橙｜能量流動', text:'我常感覺靈感／情感在體內自然流動。'},
- {phase:'橙｜能量流動', text:'我能順勢調整步調，不僵硬或卡住。'},
- {phase:'黃｜內在力量', text:'做決定時，我能堅定地選擇對自己真的好的事。'},
- {phase:'黃｜內在力量', text:'遇到挑戰，我仍能相信自己並往前一步。'},
- {phase:'綠｜共振與連結', text:'我能真誠表達，也樂於傾聽他人。'},
- {phase:'綠｜共振與連結', text:'我能感到自己與他人、與世界是連結的。'},
- {phase:'靛藍｜意識擴展', text:'我信任直覺，且能從中獲得有用的指引。'},
- {phase:'靛藍｜意識擴展', text:'我能從日常事件看見更深的洞見與意義。'},
- {phase:'紫｜靈魂整合', text:'我能把過去的經驗整合成力量，而不是枷鎖。'},
- {phase:'紫｜靈魂整合', text:'我常感到自己完整、對生命方向踏實安心。'}
-];
 const PHASES = ['白｜能量覺知','藍｜穩定與淨化','橙｜能量流動','黃｜內在力量','綠｜共振與連結','靛藍｜意識擴展','紫｜靈魂整合'];
+const QUESTIONS = [
+ {phase:PHASES[0], text:'我能清楚覺察自己此刻的身心狀態。'},
+ {phase:PHASES[0], text:'我能在混亂時，迅速把注意力帶回當下。'},
+ {phase:PHASES[1], text:'面對壓力或衝突時，我能保持冷靜不失衡。'},
+ {phase:PHASES[1], text:'我能有效地釋放累積的負面情緒與雜念。'},
+ {phase:PHASES[2], text:'我常感覺靈感／情感在體內自然流動。'},
+ {phase:PHASES[2], text:'我能順勢調整步調，不僵硬或卡住。'},
+ {phase:PHASES[3], text:'做決定時，我能堅定地選擇對自己真的好的事。'},
+ {phase:PHASES[3], text:'遇到挑戰，我仍能相信自己並往前一步。'},
+ {phase:PHASES[4], text:'我能真誠表達，也樂於傾聽他人。'},
+ {phase:PHASES[4], text:'我能感到自己與他人、與世界是連結的。'},
+ {phase:PHASES[5], text:'我信任直覺，且能從中獲得有用的指引。'},
+ {phase:PHASES[5], text:'我能從日常事件看見更深的洞見與意義。'},
+ {phase:PHASES[6], text:'我能把過去的經驗整合成力量，而不是枷鎖。'},
+ {phase:PHASES[6], text:'我常感到自己完整、對生命方向踏實安心。'}
+];
 
 const PHASE_INFO = {
- '白｜能量覺知': {key:'覺知、清明、面對當下', actions:['寫三句「此刻我真實的感受是…」','3 分鐘腹式呼吸（4-4-6）','列出 1 個念頭：是事實還是解讀？'], yl:['Clarity','Awaken'], single:['乳香','尤加利'], blocks:['容易分心','資訊過載']},
+ '白｜能量覺知': {key:'覺知、清明、面對當下', actions:['寫三句「此刻我真實的感受是…」','3 分鐘腹式呼吸（4‑4‑6）','列出 1 個念頭：是事實還是解讀？'], yl:['Clarity','Awaken'], single:['乳香','尤加利'], blocks:['容易分心','資訊過載']},
  '藍｜穩定與淨化': {key:'穩定、釋放、界線', actions:['寫下 1 件可控/不可控','走 10 分鐘','睡前 3 件感謝'], yl:['Stress Away','Peace & Calming','Grounding'], single:['鼠尾草','薄荷'], blocks:['被壓力吞沒','情緒囤積']},
  '橙｜能量流動': {key:'流動、創造、感受', actions:['5 分鐘自由書寫','安排 1 件小玩樂','把 To‑do 切成 10 分鐘'], yl:['Joy','Abundance','Aroma Siez'], single:['甜橙','依蘭'], blocks:['情緒卡住','拖延']},
  '黃｜內在力量': {key:'自信、邊界、行動', actions:['設定 1 件 MIT','練習說一次「不」','完成後公開回報'], yl:['Valor','Believe','En‑R‑G‑E'], single:['檸檬草','迷迭香'], blocks:['依賴他人','害怕失敗']},
@@ -88,28 +88,26 @@ const PHASE_INFO = {
  '紫｜靈魂整合': {key:'整合、全貌、臣服', actions:['把過去寫成力量故事','寫下一件我選擇允許的事','今晚早睡 30 分鐘'], yl:['White Angelica','Sacred Mountain','Transformation'], single:['廣藿香','岩蘭草'], blocks:['看不見方向','缺乏整合感']}
 };
 
-// Build questions with number labels
-const qwrap = document.getElementById('qwrap');
+// Build questions
+const qwrap=document.getElementById('qwrap');
 QUESTIONS.forEach((q,i)=>{
-  const id = 'q'+i;
-  const div = document.createElement('div'); div.className='q card';
-  div.innerHTML = '<label>'+ (i+1) +'. <b>'+q.phase+'</b>｜'+q.text+' <span id="'+id+'_val" class="badge">5</span></label>' +
-                  '<input type="range" min="0" max="10" step="1" value="5" id="'+id+'">' +
-                  '<div class="hint">0 = 完全不符合 ／ 10 = 非常符合</div>';
+  const id='q'+i;
+  const div=document.createElement('div'); div.className='q card';
+  div.innerHTML='<label>'+ (i+1) +'. <b>'+q.phase+'</b>｜'+q.text+' <span id="'+id+'_val" class="badge">5</span></label>'+
+                '<input type="range" min="0" max="10" step="1" value="5" id="'+id+'">'+
+                '<div class="hint">0 = 完全不符合 ／ 10 = 非常符合</div>';
   qwrap.appendChild(div);
-  const slider = div.querySelector('#'+id);
-  const disp = div.querySelector('#'+id+'_val');
-  slider.addEventListener('input', ()=> disp.textContent = slider.value);
+  div.querySelector('#'+id).addEventListener('input',e=>div.querySelector('#'+id+'_val').textContent=e.target.value);
 });
 
 function computeScores(){
-  const vals = {}; let idx=0;
+  const vals={}; let idx=0;
   PHASES.forEach(p=>{ const a=+document.getElementById('q'+idx++).value; const b=+document.getElementById('q'+idx++).value; vals[p]=(a+b)/2; });
   return vals;
 }
 
 function drawRadar(scores){
-  const canvas = document.getElementById('radar'), ctx = canvas.getContext('2d');
+  const canvas=document.getElementById('radar'), ctx=canvas.getContext('2d');
   const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2+10,R=Math.min(W,H)/2-40; ctx.clearRect(0,0,W,H);
   ctx.strokeStyle='#ffffff22'; for(let r=R;r>R/5;r-=R/5){ ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.stroke(); }
   for(let i=0;i<PHASES.length;i++){ const ang=-Math.PI/2+i*(Math.PI*2/PHASES.length); ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(cx+Math.cos(ang)*R, cy+Math.sin(ang)*R); ctx.stroke(); }
@@ -121,65 +119,45 @@ function drawRadar(scores){
 function flag(val){ if(val<=3) return '<span class="flag low">補給 '+val.toFixed(1)+'</span>'; if(val>=7) return '<span class="flag high">優勢 '+val.toFixed(1)+'</span>'; return '<span class="flag mid">觀照 '+val.toFixed(1)+'</span>'; }
 
 async function drawOracle(){
-  try{ const res=await fetch('oracle_whispering.json'); const deck=await res.json(); const pick=deck[Math.floor(Math.random()*deck.length)];
-    document.getElementById('oracleCard').innerHTML='<b>「'+pick.title+'」</b><div class="hint">'+pick.poem+'</div><div class="pill"><b>行動：</b>'+pick.action+'</div>'; }
-  catch(e){ document.getElementById('oracleCard').textContent='抽卡載入失敗'; }
+  try{
+    const res = await fetch('oracle_whispering.json?v='+Date.now(), {cache:'no-cache'});
+    const deck = await res.json();
+    const pick = deck[Math.floor(Math.random()*deck.length)];
+    document.getElementById('oracleCard').innerHTML = '<b>「'+pick.title+'」</b><div class="hint">'+pick.poem+'</div><div class="pill"><b>行動：</b>'+pick.action+'</div>';
+  }catch(e){
+    document.getElementById('oracleCard').textContent='抽卡載入失敗';
+  }
 }
 
 function saveStreak(){
   const key='e7_streak'; const today=new Date().toISOString().slice(0,10);
-  let data = {last: null, streak: 0, list: []};
-  try{ data = JSON.parse(localStorage.getItem(key)) || data; }catch(e){}
-  if(data.last !== today){
-    const yest = new Date(Date.now()-86400000).toISOString().slice(0,10);
-    data.streak = (data.last===yest) ? (data.streak||0)+1 : 1;
-    data.last = today;
-    if(!data.list) data.list=[];
-    if(!data.list.includes(today)) data.list.push(today);
-    if(data.streak>=7) data.badge=true;
-    localStorage.setItem(key, JSON.stringify(data));
-  }
+  let data={last:null,streak:0,list:[]}; try{ data=JSON.parse(localStorage.getItem(key))||data; }catch(e){}
+  if(data.last!==today){ const yest=new Date(Date.now()-86400000).toISOString().slice(0,10); data.streak=(data.last===yest)?(data.streak||0)+1:1; data.last=today; if(!data.list.includes(today)) data.list.push(today); if(data.streak>=7) data.badge=true; localStorage.setItem(key, JSON.stringify(data)); }
   updateStreakUI();
 }
-
-function updateStreakUI(){
-  const key='e7_streak'; let data={streak:0,badge:false}; try{ data=JSON.parse(localStorage.getItem(key))||data; }catch(e){}
-  const el=document.getElementById('streak');
-  el.textContent = '連續 '+(data.streak||0)+' 天';
-  if(data.badge) el.textContent += ' · 🎖 七光徽章';
-}
+function updateStreakUI(){ let data={streak:0,badge:false}; try{ data=JSON.parse(localStorage.getItem('e7_streak'))||data; }catch(e){} const el=document.getElementById('streak'); el.textContent='連續 '+(data.streak||0)+' 天'+(data.badge?' · 🎖 七光徽章':''); }
 
 function renderResult(scores){
   drawRadar(scores);
   const entries=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
   const top=entries[0], low=entries[entries.length-1];
-  document.getElementById('topkeys').innerHTML = '最高：'+top[0]+' '+top[1].toFixed(1)+' ／ 最低：'+low[0]+' '+low[1].toFixed(1);
-  // Build phase details
-  const ph=document.getElementById('phases'); ph.innerHTML='';
-  const detailEls=[];
+  document.getElementById('topkeys').textContent='最高：'+top[0]+' '+top[1].toFixed(1)+' ／ 最低：'+low[0]+' '+low[1].toFixed(1);
+  const ph=document.getElementById('phases'); ph.innerHTML=''; const refs=[];
   for(const name of PHASES){
-    const v=scores[name]; const info=PHASE_INFO[name];
-    let advice=''; if(v<=3) advice=`狀態偏低 ${flag(v)}。建議：${info.actions[0]}。推薦複方：${info.yl.slice(0,2).join('、')}。`;
-    else if(v<=6) advice=`中等 ${flag(v)}。維持節奏：${info.actions[1]}。單方可試：${info.single.join('、')}。`;
-    else advice=`狀態良好 ${flag(v)}。擴展：${info.actions[2]}。`;
-    const d=document.createElement('details');
-    d.innerHTML='<summary>'+name+flag(v)+'</summary><div class="pill"><b>關鍵字</b>：'+info.key+'</div><div class="pill"><b>動態解讀</b>：'+advice+'</div>';
-    ph.appendChild(d); detailEls.push([name,d]);
+    const v=scores[name], info=PHASE_INFO[name];
+    let advice=''; if(v<=3) advice=`狀態偏低 ${flag(v)}。建議：${info.actions[0]}。推薦複方：${info.yl.slice(0,2).join('、')}。`; else if(v<=6) advice=`中等 ${flag(v)}。維持節奏：${info.actions[1]}。單方可試：${info.single.join('、')}。`; else advice=`狀態良好 ${flag(v)}。擴展：${info.actions[2]}。`;
+    const d=document.createElement('details'); d.innerHTML='<summary>'+name+flag(v)+'</summary><div class="pill"><b>關鍵字</b>：'+info.key+'</div><div class="pill"><b>動態解讀</b>：'+advice+'</div>'; ph.appendChild(d); refs.push([name,d]);
   }
-  // auto-expand lowest phase card
-  const match = detailEls.find(x=>x[0]===low[0]); if(match){ match[1].open=true; match[1].scrollIntoView({behavior:'smooth',block:'center'}); }
+  const match=refs.find(x=>x[0]===low[0]); if(match){ match[1].open=true; match[1].scrollIntoView({behavior:'smooth',block:'center'}); }
 }
 
 document.getElementById('gen').addEventListener('click', async ()=>{
   const scores=computeScores(); renderResult(scores);
-  try{ const res=await fetch('yl_blends.json'); const list=await res.json(); const pick=list[Math.floor(Math.random()*list.length)];
-    document.getElementById('dailyOil').innerHTML='今日建議精油：<b>'+pick.name+'（'+pick.zh_name+'）</b> <span class="hint">'+(pick.description||'')+'</span>'; }catch(e){}
+  try{ const res=await fetch('yl_blends.json'); const list=await res.json(); const pick=list[Math.floor(Math.random()*list.length)]; document.getElementById('dailyOil').innerHTML='今日建議精油：<b>'+pick.name+'（'+pick.zh_name+'）</b> <span class="hint">'+(pick.description||'')+'</span>'; }catch(e){}
   await drawOracle();
   saveStreak();
 });
-
 document.getElementById('draw').addEventListener('click', drawOracle);
-
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js'); }
 updateStreakUI();
 </script>
