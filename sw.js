@@ -1,5 +1,5 @@
-// Enervi7 PWA Service Worker (Octalysis Edition)
-const CACHE_NAME = 'enervi7-octa-v1';
+// Enervi7 PWA Service Worker — E8 Keys
+const CACHE_NAME = 'enervi7-e8-v1';
 const PRECACHE = [
   './',
   './index.html',
@@ -10,7 +10,7 @@ const PRECACHE = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)).then(self.skipWaiting())
+    caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE)).then(self.skipWaiting())
   );
 });
 
@@ -28,7 +28,6 @@ self.addEventListener('fetch', (event) => {
     caches.match(req).then(cached => {
       if (cached) return cached;
       return fetch(req).then(res => {
-        // Runtime cache GET requests
         if (req.method === 'GET' && res && res.status === 200 && res.type === 'basic') {
           const resClone = res.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(req, resClone));

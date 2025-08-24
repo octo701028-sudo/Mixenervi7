@@ -1,9 +1,9 @@
 {
-  "name": "Enervi7 PWA (Octalysis Edition)",
+  "name": "Enervi7 PWA — 行動動力八鍵版",
   "short_name": "Enervi7",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#1b0a3d",
+  "background_color": "#100b1f",
   "theme_color": "#6a00ff",
   "icons": [
     {

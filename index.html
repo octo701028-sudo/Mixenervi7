@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6a00ff">
-  <title>Enervi7 × 八角框架｜Octalysis Edition</title>
+  <title>Enervi7 能量覺察｜行動動力八鍵版</title>
   <link rel="manifest" href="manifest.json">
   <style>
     :root{
@@ -12,21 +12,21 @@
       --card:#1b1330;
       --text:#f8f5ff;
       --muted:#cbb7ff;
-      --accent: #6a00ff; /* 可被使用者更改 */
+      --accent:#6a00ff;
       --good:#00d084;
       --warn:#ffb700;
       --bad:#ff4d4f;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;}
-    header{padding:24px 16px 8px; display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
-    .brand{display:flex; gap:12px; align-items:center}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif}
+    header{padding:24px 16px 8px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center}
     .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#b388ff);display:grid;place-items:center;font-weight:900}
     .logo span{font-size:18px}
     h1{font-size:18px;margin:0}
     .summon{font-size:14px;color:var(--muted);margin-top:4px;max-width:680px}
-    .panel{background:var(--card); border:1px solid #2b1d4f; border-radius:16px; padding:16px; margin:12px 16px;}
-    .row{display:grid; grid-template-columns:1fr 120px; gap:12px; align-items:center; margin:10px 0;}
+    .panel{background:var(--card);border:1px solid #2b1d4f;border-radius:16px;padding:16px;margin:12px 16px}
+    .row{display:grid;grid-template-columns:1fr 120px;gap:12px;align-items:center;margin:10px 0}
     .row label{font-size:14px}
     .row input[type=range]{width:100%}
     .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -35,13 +35,12 @@
     button.ghost{background:transparent;border:1px solid #3a2a62;color:var(--text)}
     .actions{display:flex;gap:8px;flex-wrap:wrap}
     .grid{display:grid;gap:12px}
-    @media(min-width:960px){ .grid{grid-template-columns:1.2fr 1fr} }
+    @media(min-width:960px){.grid{grid-template-columns:1.2fr 1fr}}
     .badge{background:#2b1d4f;border:1px solid #3a2a62;border-radius:12px;padding:10px;display:flex;align-items:center;gap:8px}
     .badge .emo{font-size:20px}
     .muted{color:var(--muted);font-size:13px}
     .title{font-weight:800;margin-bottom:8px}
     .section-title{font-weight:800;margin:8px 16px}
-    /* Radar */
     .radar-wrap{background:#120d21;border:1px solid #2b1d4f;border-radius:16px;padding:12px;display:grid;place-items:center}
     svg{max-width:100%;height:auto}
     .kvs{display:grid;gap:8px}
@@ -57,7 +56,7 @@
     <div class="brand">
       <div class="logo"><span>E7</span></div>
       <div>
-        <h1>Enervi7 × 八角框架｜Octalysis Edition</h1>
+        <h1>Enervi7 行動動力八鍵版</h1>
         <div id="summon" class="summon">你正在踏上一條靈魂回歸的道路。</div>
       </div>
     </div>
@@ -98,12 +97,12 @@
     </div>
   </section>
 
-  <h3 class="section-title">八角框架 × Enervi7（你的當前驅力配方）</h3>
+  <h3 class="section-title">行動動力八鍵（你的當前配方）</h3>
   <section class="panel">
-    <div id="octx" class="chips"></div>
+    <div id="e8x" class="chips"></div>
   </section>
 
-  <div class="footer">© Enervi7 Octalysis Edition — 以靈魂召喚 × 成就 × 創造力 × 連續行動，讓能量旅程更沉浸。</div>
+  <div class="footer">© Enervi7 — 以召喚 × 成就 × 創造 × 連續行動，讓能量旅程更沉浸。</div>
 
   <script>
     // ---------- Data ----------
@@ -117,15 +116,16 @@
       { key:'violet', name:'紫 / 靈魂整合',     emoji:'💜', kv:'整合與超越', action:'書寫三句「我已完成」。', oil:'廣藿香、岩蘭草、靈魂複方' }
     ];
 
-    const OCTA = [
-      { name:'使命感與呼召', emoji:'🧭' },
-      { name:'進步與成就',   emoji:'🏆' },
-      { name:'創造力與回饋', emoji:'🎨' },
-      { name:'擁有與佔有',   emoji:'💎' },
-      { name:'社交影響與連結', emoji:'🤝' },
-      { name:'稀缺與急迫',   emoji:'⏳' },
-      { name:'不確定與好奇', emoji:'🎲' },
-      { name:'避免失去',     emoji:'🛡️' }
+    // E8: 行動動力八鍵（自定義命名）
+    const E8 = [
+      { name:'召喚之心',   desc:'讓人覺得參與的是更大的故事' },     // 使命感
+      { name:'成就之流',   desc:'看見自己的成長與突破' },           // 成就
+      { name:'創造回響',   desc:'給予創作空間與即時回饋' },         // 創造/回饋
+      { name:'歸屬與擁有', desc:'覺得「這是我的」並願意投入' },     // 擁有
+      { name:'社交共振',   desc:'認可、合作、競爭帶來連結' },       // 社交
+      { name:'限時稀有',   desc:'有限與倒數讓人更想行動' },         // 稀缺/急迫
+      { name:'驚喜探索',   desc:'不確定與驚喜讓人保持好奇' },       // 不確定
+      { name:'連續守護',   desc:'避免失去既有成果而持續' }          // 避免失去
     ];
 
     const SUMMON_LINES = [
@@ -137,48 +137,24 @@
       '每一次呼吸，都是一個新的開始。'
     ];
 
-    // ---------- State & Storage ----------
-    const LS = {
-      theme: 'e7_theme',
-      tests: 'e7_tests',
-      streak: 'e7_streak',
-      last: 'e7_last',
-      badges: 'e7_badges'
-    };
-
+    const LS = { theme:'e7_theme', tests:'e7_tests', streak:'e7_streak', last:'e7_last', badges:'e7_badges' };
     const $ = (s)=>document.querySelector(s);
-    const $$ = (s)=>Array.from(document.querySelectorAll(s));
 
-    function todayStr(){
-      const d = new Date();
-      const y = d.getFullYear();
-      const m = String(d.getMonth()+1).padStart(2,'0');
-      const dd= String(d.getDate()).padStart(2,'0');
-      return `${y}-${m}-${dd}`;
-    }
+    function todayStr(){ const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+    function dayDiff(a,b){ const da=new Date(a+'T00:00:00'); const db=new Date(b+'T00:00:00'); return Math.round((db - da)/86400000); }
+    function save(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
+    function load(k,d){ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }
 
-    function dayDiff(a,b){
-      // a,b: 'YYYY-MM-DD'
-      const da = new Date(a+'T00:00:00');
-      const db = new Date(b+'T00:00:00');
-      return Math.round((db - da)/(1000*60*60*24));
-    }
-
-    function save(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
-    function load(key, def){ const v = localStorage.getItem(key); return v?JSON.parse(v):def; }
-
-    // ---------- Theme ----------
     function applyTheme(c){
       document.documentElement.style.setProperty('--accent', c);
       const meta = document.querySelector('meta[name="theme-color"]');
       if (meta) meta.setAttribute('content', c);
-      $('#theme').value = c;
+      document.getElementById('theme').value = c;
       save(LS.theme, c);
     }
 
-    // ---------- Sliders ----------
     function mkSliders(){
-      const box = $('#sliders');
+      const box = document.getElementById('sliders');
       box.innerHTML = '';
       STAGES.forEach((st,i)=>{
         const id = `s${i}`;
@@ -192,42 +168,34 @@
       });
     }
 
-    // ---------- Radar Drawing (pure SVG) ----------
     function renderRadar(values){
-      const N = values.length;
-      const size = 420, cx = 210, cy = 210, R = 160;
-      const svg = $('#radar');
-      svg.innerHTML = '';
-      // Rings
-      const rings = 5;
-      for (let r=1;r<=rings;r++){
-        const rr = R * (r/rings);
+      const N = values.length, size=420, cx=210, cy=210, R=160;
+      const svg = document.getElementById('radar'); svg.innerHTML = '';
+      // rings
+      for (let r=1;r<=5;r++){
+        const rr = R*(r/5);
         const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
-        c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', rr);
-        c.setAttribute('fill', 'none'); c.setAttribute('stroke', '#2b1d4f'); c.setAttribute('stroke-width','1');
+        c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',rr);
+        c.setAttribute('fill','none'); c.setAttribute('stroke','#2b1d4f'); c.setAttribute('stroke-width','1');
         svg.appendChild(c);
       }
-      // Axes & labels
+      // axes + labels
       for (let i=0;i<N;i++){
         const ang = -Math.PI/2 + i*(2*Math.PI/N);
         const x = cx + Math.cos(ang)*R;
         const y = cy + Math.sin(ang)*R;
         const ln = document.createElementNS('http://www.w3.org/2000/svg','line');
-        ln.setAttribute('x1', cx); ln.setAttribute('y1', cy); ln.setAttribute('x2', x); ln.setAttribute('y2', y);
-        ln.setAttribute('stroke', '#2b1d4f'); ln.setAttribute('stroke-width','1');
+        ln.setAttribute('x1',cx); ln.setAttribute('y1',cy); ln.setAttribute('x2',x); ln.setAttribute('y2',y);
+        ln.setAttribute('stroke','#2b1d4f'); ln.setAttribute('stroke-width','1');
         svg.appendChild(ln);
-
         const lbx = cx + Math.cos(ang)*(R+18);
         const lby = cy + Math.sin(ang)*(R+18);
         const text = document.createElementNS('http://www.w3.org/2000/svg','text');
-        text.setAttribute('x', lbx); text.setAttribute('y', lby);
-        text.setAttribute('fill', 'var(--muted)');
-        text.setAttribute('font-size','12');
+        text.setAttribute('x',lbx); text.setAttribute('y',lby); text.setAttribute('fill','var(--muted)'); text.setAttribute('font-size','12');
         text.setAttribute('text-anchor', Math.cos(ang)>0.2?'start':(Math.cos(ang)<-0.2?'end':'middle'));
         text.textContent = STAGES[i].emoji;
         svg.appendChild(text);
       }
-      // Polygon
       const pts = [];
       for (let i=0;i<N;i++){
         const ang = -Math.PI/2 + i*(2*Math.PI/N);
@@ -238,24 +206,19 @@
       }
       const poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
       poly.setAttribute('points', pts.map(p=>p.join(',')).join(' '));
-      poly.setAttribute('fill','var(--accent)');
-      poly.setAttribute('opacity','0.35');
-      poly.setAttribute('stroke','var(--accent)');
-      poly.setAttribute('stroke-width','2');
-      svg.appendChild(poly);
+      poly.setAttribute('fill','var(--accent)'); poly.setAttribute('opacity','0.35');
+      poly.setAttribute('stroke','var(--accent)'); poly.setAttribute('stroke-width','2');
+      document.getElementById('radar').appendChild(poly);
     }
 
-    // ---------- Result Summary ----------
     function summarize(values){
-      // Top 2
       const pairs = values.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v);
       const top2 = pairs.slice(0,2).map(p=>STAGES[p.i].name).join('，');
-      $('#summary').innerHTML = `
+      document.getElementById('summary').innerHTML = `
         <div>最高能量：<strong>${top2}</strong></div>
         <div class="muted">（提示：保持連續練習可獲得更穩定的能量曲線）</div>
       `;
-      // All KVs & actions
-      const kvs = $('#kvs'); kvs.innerHTML = '';
+      const kvs = document.getElementById('kvs'); kvs.innerHTML = '';
       STAGES.forEach((st,i)=>{
         const val = values[i];
         const status = val>=75? '好狀態' : val>=40? '穩定中' : '需要補給';
@@ -272,142 +235,98 @@
         kvs.appendChild(det);
       });
 
-      // Octalysis per current profile (simple mapping rule-of-thumb)
-      const octx = $('#octx'); octx.innerHTML = '';
-      // Map: white->使命, yellow->成就, orange->創造, violet->擁有, green->社交, blue->避免失去, indigo->不確定
-      const idx = {white:0, yellow:1, orange:2, violet:3, green:4, blue:7, indigo:6};
+      // 行動動力八鍵配方（不使用來源字眼）
+      const map = {white:0, yellow:1, orange:2, violet:3, green:4, blue:7, indigo:6};
       const picks = [];
       STAGES.forEach((st,i)=>{
-        const oc = idx[st.key];
-        picks.push({name:OCTA[oc].name, emoji:OCTA[oc].emoji, score:values[i]});
+        const key = map[st.key];
+        picks.push({name:E8[key].name, score:values[i]});
       });
-      // dedupe by name keep max
       const best = {};
-      picks.forEach(p=>{
-        if(!best[p.name] || best[p.name].score < p.score) best[p.name] = p;
-      });
-      const arr = Object.values(best).sort((a,b)=>b.score-a.score);
-      arr.slice(0,4).forEach(p=>{
-        const div = document.createElement('div');
-        div.className='chip';
-        div.textContent = `${p.emoji} ${p.name}`;
-        octx.appendChild(div);
-      });
+      picks.forEach(p=>{ if(!best[p.name] || best[p.name].score<p.score) best[p.name]=p; });
+      const arr = Object.values(best).sort((a,b)=>b.score-a.score).slice(0,4);
+      const box = document.getElementById('e8x'); box.innerHTML = '';
+      arr.forEach(p=>{ const d=document.createElement('div'); d.className='chip'; d.textContent=p.name; box.appendChild(d); });
     }
 
-    // ---------- Badges & Streak ----------
     function updateCounters(){
-      const tests = load(LS.tests, 0);
-      $('#tests').textContent = tests;
-      const streak = load(LS.streak, 0);
-      $('#streak').textContent = `${streak} 天`;
-      const badges = load(LS.badges, []);
-      const box = $('#badges'); box.innerHTML = '';
-      if (badges.length===0){
-        const em = document.createElement('div'); em.className='chip'; em.textContent = '（尚未解鎖）';
-        box.appendChild(em);
-      } else {
-        badges.forEach(b=>{
-          const d = document.createElement('div'); d.className='chip'; d.textContent = b; box.appendChild(d);
-        });
-      }
+      document.getElementById('tests').textContent = load('e7_tests', 0);
+      document.getElementById('streak').textContent = load('e7_streak', 0) + ' 天';
+      const badges = load('e7_badges', []);
+      const box = document.getElementById('badges'); box.innerHTML='';
+      if (badges.length===0){ const em=document.createElement('div'); em.className='chip'; em.textContent='（尚未解鎖）'; box.appendChild(em); }
+      else badges.forEach(b=>{ const d=document.createElement('div'); d.className='chip'; d.textContent=b; box.appendChild(d); });
     }
 
     function grantBadges(){
-      const list = load(LS.badges, []);
-      const add = (label)=>{ if(!list.includes(label)){ list.push(label); } };
-      const tests = load(LS.tests, 0);
-      const streak = load(LS.streak, 0);
-      if (tests >= 1) add('🏅 覺知之光（首次完成）');
-      if (streak >= 7) add('🏅 七階流光（連續 7 日）');
-      if (tests >= 10) add('🏅 靈魂探險家（累積 10 次）');
-      save(LS.badges, list);
+      const list = load('e7_badges', []);
+      const add = (label)=>{ if(!list.includes(label)) list.push(label); };
+      const tests = load('e7_tests', 0);
+      const streak = load('e7_streak', 0);
+      if (tests >= 1) add('🏅 覺知啟航（首次完成）');
+      if (streak >= 7) add('🏅 連續之光（連續 7 日）');
+      if (tests >= 10) add('🏅 能量探險家（累積 10 次）');
+      localStorage.setItem('e7_badges', JSON.stringify(list));
     }
 
     function tickCountersOnComplete(){
-      // tests
-      let tests = load(LS.tests, 0) + 1;
-      save(LS.tests, tests);
-      // streak
-      const last = load(LS.last, null);
+      let tests = load('e7_tests', 0) + 1;
+      save('e7_tests', tests);
+      const last = load('e7_last', null);
       const today = todayStr();
-      if (!last){ save(LS.streak, 1); save(LS.last, today); }
+      if (!last){ save('e7_streak', 1); save('e7_last', today); }
       else {
         const diff = dayDiff(last, today);
         if (diff === 0){
-          // same day, keep streak
+          // same day
         } else if (diff === 1){
-          save(LS.streak, load(LS.streak, 0)+1);
-          save(LS.last, today);
+          save('e7_streak', load('e7_streak', 0)+1);
+          save('e7_last', today);
         } else {
-          // missed days
-          save(LS.streak, 1);
-          save(LS.last, today);
+          save('e7_streak', 1);
+          save('e7_last', today);
         }
       }
       grantBadges();
       updateCounters();
     }
 
-    // ---------- Export PNG ----------
     function downloadPNG(){
       const svg = document.getElementById('radar');
       const xml = new XMLSerializer().serializeToString(svg);
       const svg64 = btoa(unescape(encodeURIComponent(xml)));
-      const image64 = 'data:image/svg+xml;base64,' + svg64;
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement('canvas');
         canvas.width = 1080; canvas.height = 1080;
         const ctx = canvas.getContext('2d');
-        // bg
-        ctx.fillStyle = '#100b1f';
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-        // title
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 44px system-ui';
+        ctx.fillStyle = '#100b1f'; ctx.fillRect(0,0,1080,1080);
+        ctx.fillStyle = '#ffffff'; ctx.font = 'bold 44px system-ui';
         ctx.fillText('Enervi7 Energy Radar', 40, 70);
-        // svg
-        const sz = 780;
-        ctx.drawImage(img, 150, 140, sz, sz);
-        // footer
-        ctx.fillStyle = '#cbb7ff';
-        ctx.font = '28px system-ui';
-        ctx.fillText('Octalysis Edition — 連續行動 × 成就 × 創造力', 40, 1030);
-        const url = canvas.toDataURL('image/png');
-        const a = document.createElement('a');
-        a.href = url; a.download = 'enervi7_radar.png'; a.click();
+        ctx.drawImage(img, 150, 140, 780, 780);
+        ctx.fillStyle = '#cbb7ff'; ctx.font = '28px system-ui';
+        ctx.fillText('行動動力八鍵 — 召喚 × 成就 × 創造 × 連續', 40, 1030);
+        const a = document.createElement('a'); a.href = canvas.toDataURL('image/png'); a.download='enervi7_radar.png'; a.click();
       };
-      img.src = image64;
+      img.src = 'data:image/svg+xml;base64,' + svg64;
     }
 
-    // ---------- Init ----------
     function init(){
-      // Random summon line
       document.getElementById('summon').textContent = SUMMON_LINES[Math.floor(Math.random()*SUMMON_LINES.length)];
-      // Theme
-      const t = load(LS.theme, '#6a00ff'); applyTheme(t);
-      document.getElementById('theme').addEventListener('input', (e)=>applyTheme(e.target.value));
+      const t = load('e7_theme', '#6a00ff'); applyTheme(t);
+      document.getElementById('theme').addEventListener('input', e=>applyTheme(e.target.value));
       document.getElementById('resetTheme').addEventListener('click', ()=>applyTheme('#6a00ff'));
-      // Sliders & default radar
       mkSliders();
       const vals = Array(STAGES.length).fill(50);
       renderRadar(vals);
       summarize(vals);
-      // Buttons
       document.getElementById('gen').addEventListener('click', ()=>{
         const values = STAGES.map((_,i)=>Number(document.getElementById('s'+i).value));
-        renderRadar(values);
-        summarize(values);
-        tickCountersOnComplete();
+        renderRadar(values); summarize(values); tickCountersOnComplete();
       });
       document.getElementById('download').addEventListener('click', downloadPNG);
-      // Counters
       updateCounters();
-      // PWA SW
-      if ('serviceWorker' in navigator){
-        navigator.serviceWorker.register('./sw.js');
-      }
+      if ('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
     }
     document.addEventListener('DOMContentLoaded', init);
   </script>
