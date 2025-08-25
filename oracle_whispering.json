@@ -2,8 +2,309 @@
   {
     "id": 1,
     "deck": "Whispering Oracle",
-    "title": "歸來",
-    "poem": "你走過萬里，原來一直都在這裡。",
+    "title": "光的來源",
+    "poem": "你是光的來源，不為被點亮而存在。",
+    "action": "今天，做一件讓你自燃的小事。"
+  },
+  {
+    "id": 2,
+    "deck": "Whispering Oracle",
+    "title": "內在召喚",
+    "poem": "你不是在學習成為光，而是在記得你本來就是光。",
+    "action": "把你今天的回應寫下一句。"
+  },
+  {
+    "id": 3,
+    "deck": "Whispering Oracle",
+    "title": "真理之光",
+    "poem": "真理是放下後還在的那個東西。",
+    "action": "放下一個念頭，看看什麼還在。"
+  },
+  {
+    "id": 4,
+    "deck": "Whispering Oracle",
+    "title": "愛的光源",
+    "poem": "我的心不是倉庫，而是太陽。",
+    "action": "把愛流動出去：傳一則感謝訊息。"
+  },
+  {
+    "id": 5,
+    "deck": "Whispering Oracle",
+    "title": "靜默之光",
+    "poem": "有一種光，不說話。",
+    "action": "三次深呼吸，讓世界安靜 30 秒。"
+  },
+  {
+    "id": 6,
+    "deck": "Whispering Oracle",
+    "title": "臣服之光",
+    "poem": "臣服不是放棄，而是放開控制的幻想。",
+    "action": "寫下一件我願意停止對抗的事。"
+  },
+  {
+    "id": 7,
+    "deck": "Whispering Oracle",
+    "title": "成為之光",
+    "poem": "成為不是學會新的樣子，而是不再扮演錯的自己。",
+    "action": "今天允許自己真實出現。"
+  },
+  {
+    "id": 8,
+    "deck": "Whispering Oracle",
+    "title": "記得之光",
+    "poem": "你不是在尋找，而是在記得。",
+    "action": "寫下你想起的那個力量。"
+  },
+  {
+    "id": 9,
+    "deck": "Whispering Oracle",
+    "title": "創造之光",
+    "poem": "你就是那道門，靈感會穿越你。",
+    "action": "立刻做第一個最小步。"
+  },
+  {
+    "id": 10,
+    "deck": "Whispering Oracle",
+    "title": "完成之光",
+    "poem": "完成不是結束，而是回到本源。",
+    "action": "承認一件已完成的事，然後休息。"
+  },
+  {
+    "id": 11,
+    "deck": "Whispering Oracle",
+    "title": "自由之光",
+    "poem": "自由不是逃離，而是不再壓抑真實。",
+    "action": "今天拒絕一件不屬於你的事。"
+  },
+  {
+    "id": 12,
+    "deck": "Whispering Oracle",
+    "title": "歸來之光",
+    "poem": "你走過萬里，原來你一直都在這裡。",
     "action": "對自己說：我已經回來了。"
+  },
+  {
+    "id": 13,
+    "deck": "Whispering Oracle",
+    "title": "無名之光",
+    "poem": "當所有「我是」都放下後，還在的那個我。",
+    "action": "今天，做一件沒有頭銜的事。"
+  },
+  {
+    "id": 14,
+    "deck": "Whispering Oracle",
+    "title": "清明",
+    "poem": "看見即力量。",
+    "action": "寫下此刻情緒的名字，不評價。"
+  },
+  {
+    "id": 15,
+    "deck": "Whispering Oracle",
+    "title": "呼吸",
+    "poem": "呼吸把你帶回此刻。",
+    "action": "練習 4-4-6 呼吸三輪。"
+  },
+  {
+    "id": 16,
+    "deck": "Whispering Oracle",
+    "title": "邊界",
+    "poem": "溫柔與堅定可以同時存在。",
+    "action": "對一件事說出清楚的『不』。"
+  },
+  {
+    "id": 17,
+    "deck": "Whispering Oracle",
+    "title": "流動",
+    "poem": "卡住時，先讓水流過。",
+    "action": "換個姿勢，動一動 2 分鐘。"
+  },
+  {
+    "id": 18,
+    "deck": "Whispering Oracle",
+    "title": "信任",
+    "poem": "你被生命承接。",
+    "action": "對今天最小的一步說：我信任。"
+  },
+  {
+    "id": 19,
+    "deck": "Whispering Oracle",
+    "title": "看見",
+    "poem": "你對自己誠實，世界就對你溫柔。",
+    "action": "寫下今天的真相，不必完美。"
+  },
+  {
+    "id": 20,
+    "deck": "Whispering Oracle",
+    "title": "寬恕",
+    "poem": "放過自己，就是自由。",
+    "action": "寫 1 句原諒自己的話。"
+  },
+  {
+    "id": 21,
+    "deck": "Whispering Oracle",
+    "title": "勇氣",
+    "poem": "勇氣不是沒有恐懼，而是在恐懼裡前進。",
+    "action": "今天前進半步。"
+  },
+  {
+    "id": 22,
+    "deck": "Whispering Oracle",
+    "title": "開門",
+    "poem": "門已經開著。",
+    "action": "踏進那扇門的第一步是什麼？"
+  },
+  {
+    "id": 23,
+    "deck": "Whispering Oracle",
+    "title": "擁抱",
+    "poem": "完整包含陰影。",
+    "action": "擁抱一個你不喜歡的自己 10 秒。"
+  },
+  {
+    "id": 24,
+    "deck": "Whispering Oracle",
+    "title": "重啟",
+    "poem": "重啟不是放棄，而是重新選擇。",
+    "action": "把今天重排一次順序。"
+  },
+  {
+    "id": 25,
+    "deck": "Whispering Oracle",
+    "title": "專注",
+    "poem": "當下就是你的全部宇宙。",
+    "action": "把注意力帶回身體三次。"
+  },
+  {
+    "id": 26,
+    "deck": "Whispering Oracle",
+    "title": "感恩",
+    "poem": "感恩讓祝福變得可見。",
+    "action": "寫下三件小小的感恩。"
+  },
+  {
+    "id": 27,
+    "deck": "Whispering Oracle",
+    "title": "滋養",
+    "poem": "你值得被好好對待。",
+    "action": "喝一杯水，慢慢喝完。"
+  },
+  {
+    "id": 28,
+    "deck": "Whispering Oracle",
+    "title": "聆聽",
+    "poem": "答案常在安靜裡。",
+    "action": "今天，聽自己說話三分鐘。"
+  },
+  {
+    "id": 29,
+    "deck": "Whispering Oracle",
+    "title": "簡化",
+    "poem": "真正重要的很少。",
+    "action": "刪掉一件不必要的待辦。"
+  },
+  {
+    "id": 30,
+    "deck": "Whispering Oracle",
+    "title": "接納",
+    "poem": "接納讓力量回來。",
+    "action": "對現在說：好，我在這裡。"
+  },
+  {
+    "id": 31,
+    "deck": "Whispering Oracle",
+    "title": "召喚",
+    "poem": "你已答應出現。",
+    "action": "把你被召喚去做的事寫下來。"
+  },
+  {
+    "id": 32,
+    "deck": "Whispering Oracle",
+    "title": "邁步",
+    "poem": "路在你腳下生成。",
+    "action": "往前一步，無論多小。"
+  },
+  {
+    "id": 33,
+    "deck": "Whispering Oracle",
+    "title": "同在",
+    "poem": "你在的地方，就是光在的地方。",
+    "action": "今天，用眼神陪伴一個人。"
+  },
+  {
+    "id": 34,
+    "deck": "Whispering Oracle",
+    "title": "邊走邊修",
+    "poem": "完美不是起點。",
+    "action": "先走，邊走邊調整。"
+  },
+  {
+    "id": 35,
+    "deck": "Whispering Oracle",
+    "title": "溫柔",
+    "poem": "請對自己輕一點。",
+    "action": "今天對自己說三句溫柔的話。"
+  },
+  {
+    "id": 36,
+    "deck": "Whispering Oracle",
+    "title": "穩定",
+    "poem": "把力量放在腳下。",
+    "action": "站穩，感覺腳掌 30 秒。"
+  },
+  {
+    "id": 37,
+    "deck": "Whispering Oracle",
+    "title": "擴展",
+    "poem": "你可以比想像的更大。",
+    "action": "想像你的光擴展到房間外。"
+  },
+  {
+    "id": 38,
+    "deck": "Whispering Oracle",
+    "title": "整合",
+    "poem": "碎片也會回家。",
+    "action": "把一段過去改寫為力量故事。"
+  },
+  {
+    "id": 39,
+    "deck": "Whispering Oracle",
+    "title": "對齊",
+    "poem": "當你與真心對齊，路自然會開。",
+    "action": "說出你的真心需求。"
+  },
+  {
+    "id": 40,
+    "deck": "Whispering Oracle",
+    "title": "明辨",
+    "poem": "看見事實與解讀的差別。",
+    "action": "把一個念頭分成事實/解讀兩欄。"
+  },
+  {
+    "id": 41,
+    "deck": "Whispering Oracle",
+    "title": "休息",
+    "poem": "休息是責任的一部分。",
+    "action": "今天提早 30 分鐘上床。"
+  },
+  {
+    "id": 42,
+    "deck": "Whispering Oracle",
+    "title": "喜悅",
+    "poem": "喜悅是方向。",
+    "action": "做一件讓你微笑的事。"
+  },
+  {
+    "id": 43,
+    "deck": "Whispering Oracle",
+    "title": "分享",
+    "poem": "讓愛流動。",
+    "action": "把今天的收穫分享給一個人。"
+  },
+  {
+    "id": 44,
+    "deck": "Whispering Oracle",
+    "title": "回應",
+    "poem": "不要拖延靈魂的訊號。",
+    "action": "當訊號到來，3 秒內回應。"
   }
 ]
