@@ -1,0 +1,9 @@
+{
+  "name": "Enervi7 黏著性升級",
+  "short_name": "Enervi7",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b1021",
+  "theme_color": "#5a6cff",
+  "icons": []
+}
