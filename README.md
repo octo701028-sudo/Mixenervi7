@@ -1,5 +1,5 @@
 
-# ✨ Enervi7 PWA v3 （完整版）
+# ✨ Enervi7 PWA v3
 
 一款結合 **Enervi7 七階能量量表 × 今日指引 × 精油系統** 的 Progressive Web App。  
 支援 **14 題量表測驗、雷達圖視覺化、七階動態解讀、精油建議（含 Young Living 全系列複方）**，並可安裝到手機，離線使用。
